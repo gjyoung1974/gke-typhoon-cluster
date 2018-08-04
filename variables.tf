@@ -1,23 +1,26 @@
 variable "cluster_name" {
   type        = "string"
   description = "Unique cluster name (prepended to dns_zone)"
+  default="acme-k8s-cluster"
 }
 
 # Google Cloud
-
 variable "region" {
   type        = "string"
   description = "Google Cloud Region (e.g. us-central1, see `gcloud compute regions list`)"
+  default="us-west1"
 }
 
 variable "dns_zone" {
   type        = "string"
   description = "Google Cloud DNS Zone (e.g. google-cloud.example.com)"
+  default = "k8s.gordonyoung.us"
 }
 
 variable "dns_zone_name" {
   type        = "string"
   description = "Google Cloud DNS Zone name (e.g. example-zone)"
+  default = "k8s-gordonyoung-us"
 }
 
 # instances
