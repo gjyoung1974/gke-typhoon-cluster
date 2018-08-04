@@ -17,6 +17,7 @@ resource "google_dns_record_set" "etcds" {
 # Zones in the region
 data "google_compute_zones" "all" {
   region = "${var.region}"
+  project = "${var.project}"
 }
 
 locals {

@@ -11,6 +11,11 @@ variable "region" {
   default="us-west1"
 }
 
+variable "project" {
+  description = "The ID of the Google Cloud project"
+  default     = "211940042662"
+}
+
 variable "dns_zone" {
   type        = "string"
   description = "Google Cloud DNS Zone (e.g. google-cloud.example.com)"
@@ -81,14 +86,19 @@ variable "worker_clc_snippets" {
 
 # configuration
 
+data "google_compute_zones" "available" {}
+
+
 variable "ssh_authorized_key" {
   type        = "string"
   description = "SSH public key for user 'core'"
+  default     = "~/.ssh/gcloud_id_rsa.pub"
 }
 
 variable "asset_dir" {
   description = "Path to a directory where generated assets should be placed (contains secrets)"
   type        = "string"
+  default = "assets"
 }
 
 variable "networking" {
